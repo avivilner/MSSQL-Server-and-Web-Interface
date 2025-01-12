@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  mssql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mssql-container
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "Sisma123!"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - mssql-data:/var/opt/mssql
+
+volumes:
+  mssql-data:
